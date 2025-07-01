@@ -1,0 +1,24 @@
+table {
+/*    border-collapse: collapse;*/
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+td {
+    width: 50px;
+    height: 50px;
+}
+
+.cell-1 { background-color: #FF5733; color: white; }
+.cell-2 { background-color: #33FF57; color: black; }
+.cell-3 { background-color: #337BFF; color: white; }
+.cell-4 { background-color: #FF33B8; color: white; }
+.cell-5 { background-color: #FFD700; color: black; }
+.cell-6 { background-color: #A52A2A; color: white; }
+.cell-7 { background-color: #20B2AA; color: black; }
+.cell-8 { background-color: #8A2BE2; color: white; }
+.cell-9 { background-color: #FF4500; color: white; }
+.cell-10 { background-color: #32CD32; color: black; }
+.cell-11 { background-color: #1E90FF; color: white; }
+.cell-12 { background-color: #9400D3; color: white; }
