@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form Validation</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Sign Up Form (JavaScript Validation)</h2>
+    <form id="signupForm">
+        <label>Name: </label>
+        <input type="text" id="name">
+        <span class="error" id="nameError"></span>
+        <br><br>
+
+        <label>Gender: </label>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <span class="error" id="genderError"></span>
+        <br><br>
+
+        <label>Email: </label>
+        <input type="text" id="email">
+        <span class="error" id="emailError"></span>
+        <br><br>
+
+        <label>Address: </label>
+        <input type="text" id="address">
+        <span class="error" id="addressError"></span>
+        <br><br>
+
+        <label>Login ID: </label>
+        <input type="text" id="login">
+        <span class="error" id="loginError"></span>
+        <br><br>
+
+        <label>Password: </label>
+        <input type="password" id="password">
+        <span class="error" id="passwordError"></span>
+        <br><br>
+
+        <label>Agreed with Policy: </label>
+        <input type="checkbox" id="policy">
+        <span class="error" id="p_error"></span>
+        <br><br>
+
+        <button type="button" onclick="validate()">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <script>
+        function validate() {
+            let is_valid = true;
+
+            // Name validation
+            let name=document.getElementById("name").value;
+            if (name.trim() === "") {
+                document.getElementById("nameError").innerHTML="Please fill Name field";
+                is_valid=false;
+            }
+
+            // Gender validation
+            let genderSelected=document.querySelector('input[name="gender"]:checked');
+            if(!genderSelected)
+            {
+                document.getElementById("genderError").innerHTML="Please select Gender";
+                is_valid=false;
+            }
+
+            // Email validation
+            let email = document.getElementById("email").value;
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/; //applied regex
+            if (email.trim() === "" || !email.match(emailPattern))
+            {
+                document.getElementById("emailError").innerHTML="Enter a valid Email";
+                is_valid=false;
+            }
+
+            // Address validation
+            let address=document.getElementById("address").value;
+            if (address.trim() === "")
+            {
+                document.getElementById("addressError").innerHTML="Address is required";
+                is_valid=false;
+            }
+
+            // Login ID validation
+            let login = document.getElementById("login").value;
+            if (login.trim() === "")
+            {
+                document.getElementById("loginError").innerHTML="Enter a Login ID";
+                is_valid=false;
+            }
+
+            // Password validation
+            let password=document.getElementById("password").value;
+            if (password.length<6)
+            {
+                document.getElementById("passwordError").innerHTML="Password must be at least 6 characters";
+                is_valid=false;
+            }
+
+            // policy agreement validation, added this from my side as I want to experience how it works
+            let policyChecked=document.getElementById("policy").checked;
+            if (!policyChecked)
+            {
+                document.getElementById("p_error").innerHTML="You must agree to the policy";
+                is_valid=false;
+            }
+
+            // If form is valid, submit
+            if (is_valid)
+            {
+                alert("Form submitted successfully!");
+            }
+        }
+    </script>
+
+</body>
+</html>

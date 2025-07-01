@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab Task 2</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h2 style="text-align: center; color: red;">REGISTERATION FORM</h2>
+    <form>
+        <table border="1" cellspacing="0" cellpadding="5" align="center" width="50%">
+            <tr>
+                <th colspan="2">INFORMATION TABLE</th>
+            </tr>
+            <tr>
+                <td width="50%">Name</td>
+                <td><input type="text" name="name"><br>Enter you full name</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="email"><br>Enter internet contact address</td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password"><br>Enter a code to identify you</td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><input type="text" name="address"><br>ENter complete address</td>
+            </tr>
+
+            <tr>
+                <td>Country</td>
+                <td>
+                    <select placeholder="country">
+                        <option value="">country</option>
+                    </select>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <input type="radio" name="gender" value="male">Male
+                    <input type="radio" name="gender" value="female">Female
+                </td>
+            </tr>
+            <tr>
+                <td>Hobbies</td>
+                <td>
+                    <input type="checkbox" name="hobbies" value="reading">Reading<br>
+                    <input type="checkbox" name="hobbies" value="music">Listening Music<br>
+                    <input type="checkbox" name="hobbies" value="gardening">Gardening<br>
+                    <input type="checkbox" name="hobbies" value="swimming">Swimming<br>
+                    <input type="checkbox" name="hobbies" value="athletics">Athletics<br>check all that apply
+                </td>
+            </tr>
+            <tr>
+                <td>Your Website</td>
+                <td><input type="url" name="website" placeholder="http://"><br>provide your website URL if exist (not necessary) </td>
+            </tr>
+            <tr>
+                <td>Other Information About You</td>
+                <td>
+                    <textarea name="other_info" rows="4" cols="40"></textarea><br>write any other information that is not present here
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">Send Details</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="2" style="text-align: left;">
+                    <input type="submit" value="SEND">
+                    <input type="reset" value="RESET">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

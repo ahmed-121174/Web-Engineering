@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab Task 3</title>
+    <style>
+        body
+        {
+            font-family: Arial;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+        .container
+        {
+            font-size: 20px;
+            width: 80%;
+            margin: 0 auto;
+        }
+        header
+        {
+            background-color: white;
+            color: purple;
+            text-align: left;
+            padding: 15px;
+            position: relative;
+        }
+        .search-box
+        {
+            position: absolute;
+            top: 25px;
+            right: 20px;
+            background: linear-gradient(to bottom, #d3eb93, #aae435);
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .search-box input
+        {
+            padding: 8px;
+            border-radius: 3px;
+        }
+        .search-box button
+        {
+            background-color: purple;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .search-box button:hover
+        {
+            background-color: #5a005a;
+        }
+        nav
+        {
+            background: linear-gradient(to bottom, #edeb62, #dddb32);
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        nav ul
+        {
+            padding: 0;
+        }
+        nav ul li
+        {
+            display: inline;
+            margin: 12px 15px;
+            font-weight: bold;
+        }
+        .intro
+        {
+            background: linear-gradient(to bottom, #d9ec9b, #b5e74a);
+            padding: 50px;
+            text-align: left;
+            margin-bottom: 40px;
+            font-family:times new roman;
+            font-size: 30px;
+        }
+        p
+        {
+            font-size: 30px;
+        }
+        .content
+        {
+            width: 100%;
+            overflow: hidden; /*clear floated elements*/
+        }
+        .web-development, .course
+        {
+            width: 48%;  /*each section takes half the width*/
+            float: left;  /*position them side by side*/
+            padding: 15px;
+            background: white;
+            border: 2px solid dimgrey;
+            border-radius: 10px;
+            margin-left: 15px;
+            box-sizing: border-box; /*prevents padding from affecting width*/
+        }
+        h3
+        {
+            color: purple;
+            font-weight: bold;
+        }
+        ul
+        {
+            list-style-type: none;
+            padding: 0;
+        }
+        .web-development ul li::before
+        {
+            content: "❌ ";
+            color: red;
+        }
+        .course ul li::before
+        {
+            content: "✔ ";
+            color: green;
+            font-size: 20px;
+        }
+        ul li
+        {
+            padding: 5px;
+            font-size: 16px;
+        }
+        footer
+        {
+            background-color: orange;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 auto;
+            margin-top: 40px;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Coding is Poetry</h1>
+            <div class="search-box">
+                <input type="text" placeholder="Search the box">
+                <button>Search the box</button>
+            </div>
+        </header>
+        
+        <nav>
+            <ul>
+                <li>HOME</li>
+                <li>WEB DEVELOPMENT</li>
+                <li>DESKTOP LEARNING</li>
+                <li>REGISTRATION</li>
+                <li>CONTACT US</li>
+            </ul>
+        </nav>
+        
+        <section class="intro">
+            <h1>Want to Learn Coding?</h1>
+            <p>
+                If you are interested in learning programming and want to fulfill your dreams in the field of programming,
+                then you are at the best place. The Computer Software Engineering Department at UET Mardan can polish you
+                and will enhance your programming skills up to the mark. Welcome to the club!
+            </p>
+        </section>
+        
+        <section class="content">
+            <div class="web-development">
+                <h3>Web Development:</h3>
+                <ul>
+                    <li>Hyper Text Markup Language</li>
+                    <li>Cascading Style Sheet</li>
+                    <li>JavaScript</li>
+                    <li>Hypertext Preprocessor (PHP)</li>
+                    <li>Bootstrap</li>
+                    <li>WordPress</li>
+                    <li>LARAVEL PHP Framework</li>
+                    <li>Angular Technology</li>
+                    <li>JQuery</li>
+                    <li>AJAX</li>
+                    <li>Mean Stack</li>
+                    <li>MySQL</li>
+                </ul>
+            </div>
+            
+            <div class="course">
+                <h3>More Options:</h3>
+                <ul>
+                    <li>C Programming</li>
+                    <li>Object Oriented Programming</li>
+                    <li>Microsoft Visual Basic</li>
+                    <li>C#</li>
+                    <li>JAVA</li>
+                    <li>Python</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <footer>
+        Ahmed_22p-9318_BS(SE)-6B_Web-Eng.
+    </footer>
+</body>
+</html>

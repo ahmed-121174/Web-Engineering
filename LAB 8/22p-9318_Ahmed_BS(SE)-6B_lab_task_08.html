@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB TASK 8</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header bg-primary text-white d-flex justify-content-between">
+                <h4>📜 Quote Generator</h4>
+                <span>Created by Ahmed Ali</span>
+            </div>
+            <div class="card-body">
+                <p class="quote-box p-3 bg-light border rounded" id="quote-box">Your Quote will appear here......</p>
+                <div class="d-flex justify-content-between">
+                    <span>Words: <span id="word-count">0</span></span>
+                    <span>Chars: <span id="char-count">0</span></span>
+                    <span>Vowels: <span id="vowel-count">0</span></span>
+                </div>
+                <div class="mt-3 d-flex justify-content-between">
+                    <button class="btn btn-primary" id="generate-quote">Generate Quote</button>
+                    <button class="btn btn-dark" id="count-words">Analyze</button>
+                    <button class="btn btn-danger" id="reset">Reset</button>
+                    <button class="btn btn-success" id="download-pdf">Download</button>
+                </div>
+            </div>
+        </div>
+        <div class="chat-button">
+            <button class="btn btn-primary" id="chat-btn">💬</button>
+            <div class="chat-window bg-white border p-3 rounded shadow" id="chat-window" style="display: none;">
+                <p><strong>Chat with us!</strong></p>
+                <p>🤖 Hello! Need help with quotes? Ask anything here........</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById("download-pdf").addEventListener("click", () => {
+            const quoteText = document.getElementById("quote-box").innerText;
+            if (!quoteText || quoteText === "Your Quote will appear here...") {
+                alert("No quote available to download!");
+                return;
+            }
+
+            const {{ jsPDF }} = window.jspdf;
+            const doc = new jsPDF();
+            doc.text(20, 30, quoteText);
+            doc.save("quote generator.pdf");
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

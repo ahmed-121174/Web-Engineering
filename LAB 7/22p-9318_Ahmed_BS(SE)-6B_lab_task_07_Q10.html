@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Task 7 Q10</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .album-container {
+            border: 3px solid black;
+            display: inline-block;
+            padding: 10px;
+            box-shadow: 5px 5px 10px gray;
+        }
+        .buttons {
+            margin-bottom: 10px;
+        }
+        .buttons button {
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            border: 2px solid black;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="album-container">
+        <h2>My Personal Photo Album</h2>
+        <div class="buttons">
+            <button onclick="change_image('Birthday.jpg')">Birthday</button>
+            <button onclick="change_image('cat.jpg')">Pets</button>
+            <button onclick="change_image('car.jpg')">Cars</button>
+        </div>
+        <div>
+            <img id="photo" src="birthday.png" alt="Photo Album">
+        </div>
+    </div>
+
+    <script>
+        function change_image(imageName) {
+            document.getElementById('photo').src=imageName;
+        }
+    </script>
+</body>
+</html>

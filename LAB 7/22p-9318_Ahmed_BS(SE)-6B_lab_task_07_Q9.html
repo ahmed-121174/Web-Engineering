@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab TAsk 7 Q9</title>
+    <style>
+        body {
+            background-color: lightgreen;
+            font-family: Arial
+        }
+        .error { 
+            color: red;
+            font-size: 14px; 
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Please complete the following registration form</h2>
+    <form id="bike_form">
+        <label for="name">Name:</label>
+        <input type="text" id="name">
+        <br><br>
+
+        <label for="mailing_address">Mailing Address:</label>
+        <input type="text" id="mailing_address">
+        <br><br>
+
+        <p>What is overall opinion of this website?</p>
+        <input type="radio" name="opinion" value="high"> High
+        <input type="radio" name="opinion" value="average"> Average
+        <input type="radio" name="opinion" value="low"> Low
+        <br><br>
+
+        <label for="comments">Additional Comments:</label><br>
+        <textarea id="comments" rows="4" cols="30"></textarea>
+        <br><br>
+
+        <label for="source">How did you learn about this website?</label>
+        <select id="source">
+            <option value="">Select</option>
+            <option value="Emails">Emails</option>
+            <option value="social_media">Social Media</option>
+            <option value="ads">Advertisements</option>
+        </select>
+        <br><br>
+
+        <button type="button" onclick="validate_form()">Validate Order</button>
+        <button type="reset">Reset Form</button>
+        <button type="submit">Submit Form</button>
+    </form>
+
+    <script>
+        function validate_form()
+        {
+            let name=document.getElementById("name").value.trim();
+            let mailing_address=document.getElementById("mailing_address").value.trim();
+            let comments=document.getElementById("comments").value.trim();
+            let source=document.getElementById("source").value;
+            let opinion_checked=document.querySelector('input[name="opinion"]:checked');
+
+            if (name === "")
+            {
+                alert("Missing Name! Please correct");
+                return false;
+            }
+            if (mailing_address === "")
+            {
+                alert("Missing Mailing Address! Please correct");
+                return false;
+            }
+            if (!opinion_checked)
+            {
+                alert("Missing Website Opinion! Please select an option");
+                return false;
+            }
+            if (comments === "")
+            {
+                alert("Missing Comments! Please provide feedback");
+                return false;
+            }
+            if (source === "")
+            {
+                alert("Missing Learning Source! Please select an option");
+                return false;
+            }
+            alert("All fields are correctly filled. You may proceed with submission.");
+            return true;
+        }
+    </script>
+</body>
+</html>

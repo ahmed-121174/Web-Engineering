@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Task 7 Q6</title>
+</head>
+<body>
+    <select id="dropdown">
+        <option value="First">First</option>
+        <option value="Second">Second</option>
+        <option value="Third">Third</option>
+    </select>
+    <button id="btn" onclick="replace()">New Entry</button>
+
+    <script>
+        function replace()
+        {
+            let dropdown=document.getElementById("dropdown");
+            let button=document.getElementById("btn");
+
+            let input=document.createElement("input");
+            input.type="text";
+            input.id="textInput";
+            
+            dropdown.replaceWith(input);
+        }
+    </script>
+</body>
+</html>

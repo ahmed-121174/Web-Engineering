@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lab Task 4 Q2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f0f8ff;
+            line-height: 1.6;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            gap: 20px;
+        }
+
+        .header {
+            background-color: #52B700;
+            padding: 10px;
+            color: #333;
+        }
+
+        .header-container {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo img {
+            height: 100px;
+        }
+
+        .header-nav ul {
+            display: grid;
+            grid-template-columns: repeat(4, auto);
+            gap: 10px;
+            list-style: none;
+            justify-content: end;
+        }
+
+        .main-content {
+            display: grid;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .welcome-section {
+            background-color: #fff;
+            padding: 80px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .welcome-section h1 {
+            color: #228B22;
+            margin-bottom: 10px;     
+        }
+
+        .categories-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .category-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 2px solid #228B22;
+        }
+
+        .category-box img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .category-box h2 {
+            color: #228B22;
+        }
+
+        .footer {
+            background-color: #52B700;
+            padding: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo.png" alt="POHA LMS Logo">
+            </div>
+            <nav class="header-nav">
+                <ul>
+                    <li>Home</li>
+                    <li>Subjects</li>
+                    <li>Ahmed</li>
+                    <li>Logout</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="welcome-section">
+            <h1>WELCOME TO POHA LMS</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </section>
+
+        <section class="categories-section">
+            <div class="category-box">
+                <img src="lession.png" alt="Lessons">
+                <h2>LESSONS</h2>
+            </div>
+            <div class="category-box">
+                <img src="card-img.png" alt="Examination">
+                <h2>Examination</h2>
+            </div>
+            <div class="category-box">
+                <img src="result.png" alt="Home Work">
+                <h2>HOME WORK</h2>
+            </div>
+            <div class="category-box">
+                <img src="feed_back.png" alt="Chat">
+                <h2>CHAT</h2>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <p>Elementary & Secondary Education Foundation Khyber Pakhtunkhwa</p>
+                <p>Plot No. 20, Street 13, Sector E8, Phase 7, Hayatabad, Peshawar</p>
+                <p><a href="mailto:info@eef.org.pk">info@eef.org.pk</a></p>
+                <p>091-9219106</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li>Home</li>
+                    <li>About POHA</li>
+                </ul>
+            </div>
+            <div class="footer-useful-links">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li>E-Lab</li>
+                    <li>About POHA</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

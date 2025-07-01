@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab Task 4 Q1</title>
+  <style>
+    * {
+      margin: 100;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial;
+    }
+
+    .header {
+      background: linear-gradient(to bottom, #2f552f, #ffffff);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    h1{
+      margin-bottom: 20px;
+    }
+
+    p{
+      margin-bottom: 20px;
+    }
+    .logo {
+      height: 50px;
+    }
+
+    .container {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+    }
+
+    .menu li {
+      padding: 15px 20px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .menu li:hover {
+      background: #ffffff33;
+      border-radius: 5px;
+    }
+
+    .contact-section {
+      padding: 50px;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+
+    .contact-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .contact-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #0000001a;
+      width: 300px;
+      text-align: center;
+    }
+
+    .contact-box h3 {
+      margin-bottom: 10px;
+    }
+
+.contact-form-section {
+      display: flex;
+      padding: 50px;
+      background-color: #ffffff;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .contact-form-container {
+      width: 50%;
+      text-align: left;
+    }
+
+    .contact-form-container h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .form-group div {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .form-group input, .full-width {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .full-width-label {
+      display: block;
+      text-align: left;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .button-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .contact-form-container button {
+      background-color: #2f552f;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+
+    }
+
+    .contact-form-container button:hover {
+      background-color: #1e3e1e;
+    }
+
+    .contacts-directory {
+    padding: 50px;
+    text-align: center;
+    background-color: #f4f4f4;
+    }
+
+    .contacts-directory h2 {
+        font-size: 40px;
+        color: dimgray;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    table {
+        width: 60%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        background: white;
+        box-shadow: 0 0 10px #0000001a;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+
+    }
+
+    th {
+        background-color: white;
+        font-size: 24px;
+        color: black;
+        font-weight: bold;
+    }
+
+    .footer {
+    background-color: #263f49;
+    color: white;
+    padding: 40px 0;
+    font-family: Arial;
+    }
+
+    .footer-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .footer-left, .footer-center, .footer-right {
+        flex: 1;
+        min-width: 250px;
+        margin: 10px;
+    }
+
+    .footer-left h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .footer-left p {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .footer-left strong {
+        color: #b4d4b4;
+    }
+
+    .social-icons {
+        margin-top: 10px;
+    }
+
+    .social-icons img {
+        width: 30px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .footer-center h3,
+    .footer-right h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .footer-center ul,
+    .footer-right ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-center li,
+    .footer-right li {
+        font-size: 14px;
+        padding: 5px 0;
+        color: #b4d4b4;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding: 15px;
+        background-color: #172d17;
+        font-size: 14px;
+    }
+
+    .footer-bottom strong {
+        color: #b4d4b4;
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <img src="logo.png" alt="Logo" class="logo">
+    <div class="container">
+      <ul class="menu">
+        <li>Home</li>
+        <li>About Us</li>
+        <li>Success Stories</li>
+        <li>NFE</li>
+        <li>Schemes</li>
+        <li>Media</li>
+        <li>Downloads</li>
+        <li>POHA</li>
+        <li>Contact Us</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="contact-section">
+    <h1>Contact Us</h1>
+    <p>Got a question? We would love to hear from you. Send us a message and we will respond as soon as possible.</p>
+    <div class="contact-container">
+      <div class="contact-box">
+        <h3>Our Address</h3>
+        <p>Elementary & Secondary Education Foundation</p>
+        <p>Plot No.20, Street No.13, Sector E-8, Phase-7, Hayatabad, Peshawar, Khyber Pakhtunkhwa</p>
+      </div>
+      <div class="contact-box">
+        <h3>Email Us</h3>
+        <p>info@eef.org.pk</p>
+      </div>
+      <div class="contact-box">
+        <h3>Call Us</h3>
+        <p>091-9219106, 9219107</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-form-section">
+    <iframe src="https://maps.google.com/maps?q=Elementary%20and%20Secondary%20Education%20Foundation&t=&z=13&ie=UTF8&iwloc=&output=embed" width="50%" height="400" style="border:0;" allowfullscreen loading="lazy"></iframe>
+    
+    <div class="contact-form-container">
+      <h2>Send us a message</h2>
+      <div class="form-group">
+        <div>
+          <label for="name">Name *</label>
+          <input type="text" id="name" placeholder="Your Name" required>
+        </div>
+        <div>
+          <label for="email">Email *</label>
+          <input type="email" id="email" placeholder="Your Email" required>
+        </div>
+      </div>
+      <label class="full-width-label" for="subject">Subject *</label>
+      <input type="text" id="subject" placeholder="Subject" class="full-width" required>
+      <label class="full-width-label" for="message">Message *</label>
+      <textarea id="message" placeholder="Message" class="full-width" rows="5" required></textarea>
+      
+      <div class="button-container">
+        <button type="submit">Send Message</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="contacts-directory">
+    <h2>Contacts Directory</h2>
+    <table>
+        <tr>
+            <th>Designation</th>
+            <th>Telephone No</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            <td>Managing Director Office</td>
+            <td>919219999</td>
+            <td>md@eef.org.pk</td>
+        </tr>
+        <tr>
+            <td>Deputy Managing Director Office</td>
+            <td>919219999</td>
+            <td>deputy.md@eef.org.pk</td>
+        </tr>
+        <tr>
+            <td>Director Program Office</td>
+            <td>919219125</td>
+            <td>dpoffice@gmail.com</td>
+        </tr>
+        <tr>
+            <td>Exchange Office</td>
+            <td>9219106108</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>DPO D.I.Khan</td>
+            <td>0966-9280430</td>
+            <td>dikhan@eef.org.pk</td>
+        </tr>
+        <tr>
+            <td>DPO Tank</td>
+            <td>0966-510537</td>
+            <td>tank@eef.org.pk</td>
+        </tr>
+        <tr>
+            <td>DPO Bannu</td>
+            <td>09286622909</td>
+            <td>bannu@eef.org.pk</td>
+        </tr>
+        <tr>
+            <td>DPO Lakki Marwat</td>
+            <td>0969-511404</td>
+            <td>lakkimarwat@eef.org.pk</td>
+        </tr>
+        <tr>
+            <td>DPO Karak</td>
+            <td>0927-210786</td>
+            <td>karak@eef.org.pk</td>
+        </tr>
+    </table>
+</section>
+
+  <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-left">
+            <h2>Elementary & Secondary Education Foundation <br> Khyber Pakhtunkhwa</h2>
+            <p>Plot No.20, Street No.13, Sector E-8,<br> Phase-7, Hayatabad, Peshawar</p>
+            <p><strong>Phone:</strong> 091-9219106, 9219107</p>
+            <p><strong>Email:</strong> info@eef.org.pk</p>
+            <div class="social-icons">
+                <img src="twitter-icon.png" alt="Twitter">
+                <img src="facebook-icon.png" alt="Facebook">
+                <img src="instagram-icon.png" alt="Instagram">
+                <img src="youtube-icon.png" alt="YouTube">
+            </div>
+        </div>
+        <div class="footer-center">
+            <h3>Our Services</h3>
+            <ul>
+                <li>Girls Community Schools</li>
+                <li>Education Support Scheme</li>
+                <li>New Schools Initiative</li>
+                <li>Downloads</li>
+                <li>Contact Us</li>
+            </ul>
+        </div>
+        <div class="footer-right">
+            <h3>Useful Links</h3>
+            <ul>
+                <li>Apply For GCS</li>
+                <li>Apply For ESS</li>
+                <li>Apply For NSI</li>
+                <li>Elementary & Secondary Education Department</li>
+                <li>Sindh Education Foundation</li>
+                <li>Punjab Education Foundation</li>
+                <li>Higher Education Department</li>
+                <li>Education Monitoring Authority</li>
+                <li>ETEA</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; Copyright (2022) <strong>Elementary & Secondary Education Foundation, Govt. of Khyber Pakhtunkhwa.</strong> All Rights Reserved</p>
+        <p>Designed by Ahmed</p>
+    </div>
+</footer>
+</body>
+</html>

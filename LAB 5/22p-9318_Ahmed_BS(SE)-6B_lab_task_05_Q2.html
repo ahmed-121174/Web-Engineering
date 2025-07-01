@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Websaloon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial;
+            overflow-x: hidden;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: white;
+            margin-left: 300px;
+        }
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin-right: 250px;
+            margin-top: 3px;
+        }
+        .nav ul li a {
+            text-decoration: none;
+            color: #555;
+            font-size: 13px;
+            margin-right: 15px;
+        }
+
+        .picbox {
+            height: 600px;
+            background: url('websaloon-barn-neon.gif') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .picbox-content {
+            background: whitesmoke;
+            padding: 50px;
+            max-width: 6000px;
+            text-align: center;
+            height: 0 auto;
+        }
+        .picbox-content h2 {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .picbox-content p {
+            font-size: 14px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+
+        .picbox1 {
+            padding: 50px;
+            text-align: center;
+        }
+    
+        .filter-menu ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+    
+        .filter-menu ul li {
+            display: inline;
+        }
+    
+        .filter-menu ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 14px;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+    
+        .filter-menu ul li a.active, .filter-menu ul li a:hover {
+            background: black;
+            color: white;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+    
+        .gallery img {
+            width: 30%; /* adjusts three images per row */
+            max-width: 300px;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+
+        .load-more-container {
+        text-align: center;
+        margin-top: 50px;
+        }
+
+        .line {
+            width: 50px;
+            height: 2px;
+            background: black;
+            margin: auto;
+            margin-top: 75px;
+            margin-bottom: 40px;
+
+        }
+
+        .load-more {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 3px;
+        }
+
+        .load-more:hover {
+            background: #333;
+        }
+
+        footer {
+        background: #f3f3f3;
+        padding: 50px 0;
+        text-align: center;
+        margin-top: 50px;
+        }
+
+        .footer-container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .footer-container img {
+            max-width: 150px
+        }
+
+        .footer-nav {
+            margin: 10px;
+        }
+
+        .footer-nav a {
+            color: #555;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-nav a:hover {
+            color: black;
+        }
+
+        footer p {
+            font-size: 12px;
+            color: #777;
+            margin-top: 10px;
+        }
+
+
+        @media (max-width: 1200px) {
+            .header {
+                padding: 20px;
+            }
+            picbox {
+                height: 500px;
+            }
+        }
+        @media (max-width: 992px) {
+            .nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            .gallery img {
+                width: 45%;
+            }
+        }
+        @media (max-width: 500px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            picbox {
+                height: 400px;
+            }
+            .gallery img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo"><img src="websaloon-rood-kleinkopie.png" alt="logo"></div>
+        <nav class="nav">
+            <ul>
+                <li><a href="">HOME</a></li>
+                <li><a href="">ABOUT US</a></li>
+                <li><a href="">SERVICE</a></li>
+                <li><a href="">PORTFOLIO</a></li>
+                <li><a href="">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="picbox">
+        <div class="picbox-content">
+            <h2>WE ARE WEBSALOON</h2>
+            <p>A small creative no-nonsense advertising agency,<br> focused on internet, e-mail, and social media marketing.<br></p>
+            <p>We offer: WordPress websites - Webshops - Corporate identity design - Social media marketing & advertising - E-mail marketing.</p>
+        </div>
+    </section>
+    <section class="picbox1">
+        <div class="filter-menu">
+            <ul>
+                <li><a href="" class="active">ALL</a></li>
+                <li><a href="">DIVERSE</a></li>
+                <li><a href="">NEW</a></li>
+                <li><a href="">DESIGN</a></li>
+                <li><a href="">PRODUCTION</a></li>
+                <li><a href="">SOCIAL MEDIA</a></li>
+                <li><a href="">WEB DESIGN</a></li>
+            </ul>
+        </div>
+    
+        <div class="gallery">
+            <img src="coronel-funbowling-500x500.png" alt="Image 1">
+            <img src="img2.png" alt="Image 2">
+            <img src="img3.jpg" alt="Image 3">
+            <img src="img4.jpg" alt="Image 4">
+            <img src="img5.jpg" alt="Image 5">
+            <img src="img6.jpg" alt="Image 6">
+        </div>
+
+        <div class="load-more-container">
+            <div class="line"></div>
+            <button class="load-more">LOAD MORE</button>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="footer-container">
+            <img src="websaloon-rood-kleinkopie.png" alt="Websaloon Logo">
+            <nav class="footer-nav">
+                <a href="">WORK</a>
+                <a href="">ABOUT</a>
+                <a href="">CONTACT</a>
+            </nav>
+            <p>&copy; 2019 Websaloon</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab TAsk 7 Q8</title>
+    <style>
+        #display_box {
+            width: 200px;
+            height: 100px;
+            background-color: cyan;
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Display of Selected Text using onSelect Event</h2>
+    <label for="text_input">Select Text</label>
+    <input type="text" id="text_input" onselect="show_selected_text()">
+    <div id="display_box"></div>
+
+    <script>
+        function show_selected_text()
+        {
+            let text_input=document.getElementById("text_input");
+            let selected_text=text_input.value.substring(text_input.selectionStart, text_input.selectionEnd);
+            document.getElementById("display_box").innerText=selected_text;
+        }
+    </script>
+</body>
+</html>

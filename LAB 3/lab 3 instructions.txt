@@ -1,0 +1,5 @@
+section class="main" height:100vh
+	div class title text	height:10vh
+	div{input, search, padding} height:10vh
+	div 80 vh
+</section>
