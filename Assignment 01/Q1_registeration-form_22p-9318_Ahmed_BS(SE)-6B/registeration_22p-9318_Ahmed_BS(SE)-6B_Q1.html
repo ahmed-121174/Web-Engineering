@@ -1,0 +1,132 @@
+<!--Ahmed   p22-9318  style.css -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web-Eng Assignment-01 Q1</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>REGISTERATION FORM</h2>
+    <form>
+        <table>
+            <tr>
+                <th colspan="2">INFORMATION TABLE</th>
+            </tr>
+            <tr>
+                <td width="50%">Full Name</td>
+                <td><input type="text" name="name"><br>Enter you full name</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="email"><br>Enter internet contact address</td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password"><br>Enter a code to identify you</td>
+            </tr>
+            <tr>
+                <td>D.O.B</td>
+                <td><input type="date" name="dob"></td>
+            </tr>
+            <tr>
+                <td>Month of Interest</td>
+                <td>
+                    <select name="month">
+                        <option value="">Select a month</option>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Number of Courses</td>
+                <td><input type="Number" name="courses" min="1" max="6" step="1"></td>
+            </tr>
+            <tr>
+                <td>Skill Level</td>
+                  <td><input type="range" name="skill_level" min="1" max="10" step="1" value="5">
+                </td>
+            </tr>
+            <tr>
+                <td>Search Preference</td>
+                <td><input type="search" name="Search Preference" placeholder="Search for courses..."></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <input type="radio" name="gender" value="male">Male
+                    <input type="radio" name="gender" value="female">Female
+                    <input type="radio" name="gender" value="Others">Others
+                </td>
+            </tr>
+            <tr>
+                <td>Preferred Learning Style</td>
+                <td>
+                    <input type="checkbox" name="Preferred Learning Style" value="visual"> Visual
+                    <input type="checkbox" name="Preferred Learning Style" value="auditory"> Auditory
+                    <input type="checkbox" name="Preferred Learning Style" value="kinesthetic"> Kinesthetic
+                </td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td>
+                    <select placeholder="country">
+                        <option value="country">country</option>
+                        <option value="Pakistan">Pakistan</option>
+                        <option value="Dubai">Dubai</option>
+                        <option value="America">America</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Saudi Arabia">Saudia Arabia</option>
+                        <option value="South Africa">South Africa</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Other Information About You</td>
+                <td>
+                    <textarea name="other_info" rows="4" cols="40"></textarea><br>write any other information that is not present here
+                </td>
+            </tr>
+            <tr>
+                <td>Progress Bar</td>
+                <td>
+                    <progress value="50" max="100"></progress> 50%
+                </td>
+            </tr>
+            <tr>
+                <td>Favorite Color</td>
+                <td><input type="color" name="fav_color"></td>
+            </tr>
+            <tr>
+                <td>Phone Number</td>
+                <td><a href="+92 1234567 ">+92 1234567</a></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><a href="mailto:p229318@pwr.nu.edu.pk">p229318@pwr.nu.edu.pk</a></td>
+            </tr>
+            <tr>
+                <th colspan="2">Send Details</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="2" style="text-align: left;">
+                    <input type="submit" value="SEND">
+                    <input type="reset" value="RESET">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

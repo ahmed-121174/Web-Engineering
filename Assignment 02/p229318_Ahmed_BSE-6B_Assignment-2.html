@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p22-9318_Ahmed_BS(SE)-6B_Assignment-2</title>
+    <script src="https://www.java.com/js/deployJava.js"></script>
+    <style>
+        body {
+            font-family: 'Times New Roman' sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin: 0;
+        }
+        .main-container {
+            display: flex;
+            gap: 30px;
+        }
+        .products {
+            flex: 2;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .product-image {
+            width: 100%;
+            height: 150px;
+            background-color: #f5f5f5;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: #888;
+        }
+        .product-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .product-price {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .add-to-cart {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .add-to-cart:hover {
+            background-color: #2980b9;
+        }
+        .cart {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 20px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .cart-title {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .cart-item-details {
+            flex: 1;
+        }
+        .cart-item-title {
+            font-weight: bold;
+        }
+        .cart-item-price {
+            color: #e74c3c;
+        }
+        .remove-item {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .remove-item:hover {
+            background-color: #c0392b;
+        }
+        .cart-summary {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .discount-info {
+            display: flex;
+            justify-content: space-between;
+            color: #27ae60;
+            margin-bottom: 15px;
+        }
+        .coupon-container {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .coupon-input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .apply-coupon {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        .apply-coupon:hover {
+            background-color: #27ae60;
+        }
+        .event-controls {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        #eventLogs {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .empty-cart-message {
+            text-align: center;
+            color: #7f8c8d;
+            padding: 20px 0;
+        }
+        .event-log-entry {
+            margin-bottom: 5px;
+            padding: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .clear-logs {
+            background-color: #7f8c8d;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 12px;
+        }
+        .applet-container {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+        }
+        .applet-fallback {
+            padding: 20px;
+            text-align: center;
+            background-color: #fff;
+            border: 1px dashed #ddd;
+        }
+    </style>
+</head>
+<!--to fixed used to make the floating points to round number-->
+<body>
+    <header>
+        <h1>E-commerce Shopping Cart System</h1>
+        <p> &copy; Ahmed-Ali_p22-9318 </p>
+    </header>
+
+
+    <div class="event-controls">
+        <div class="toggle-container">
+            <label class="toggle-switch">
+                <input type="checkbox" id="eventPhaseToggle">
+                <span class="slider"></span>
+            </label>
+            <span id="eventPhaseLabel">Event Phase: Bubbling</span>
+        </div>
+        <div id="eventLogs">
+            <h3>Event Logs</h3>
+            <div id="logEntries"></div>
+            <button class="clear-logs" id="clearLogs">Clear Logs</button>
+        </div>
+    </div>
+
+    <!--java aplet section-->
+    <div class="applet-container">
+        <h3>Java Applet Integration</h3>
+        
+        <!--traditional Java applet code that would have been used, I Find it on internet-->
+        <object type="application/x-java-applet" width="400" height="300" id="cartApplet" style="display:none;">
+            <param name="code" value="ShoppingCartApplet.class" />
+            <param name="archive" value="https://cdnjs.cloudflare.com/ajax/libs/java-applet/1.0/ShoppingCartApplet.jar" />
+            <param name="scriptable" value="true" />
+            <param name="mayscript" value="true" />
+            Your browser does not support Java applets
+        </object>
+        
+        <!--fallback using js from cdn-->
+        <div class="applet-fallback" id="appletFallback">
+            <p>Java applets are no longer supported by modern browsers</p>
+            <p>modern equivalent functionality is being provided via JS</p>
+            <div id="appletVisualization"></div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="products">
+            <h2>Products</h2>
+            <div class="product-grid" id="productGrid">
+                <!--dynamically insertion of products-->
+            </div>
+        </div>
+
+        <div class="cart">
+            <h2 class="cart-title">Shopping Cart</h2>
+            <div id="cartItems">
+                <p class="empty-cart-message">Your cart is empty.</p>
+            </div>
+            <div class="cart-summary">
+                <div class="discount-info" id="discountInfo" style="display: none;">
+                    <span>Discount:</span>
+                    <span id="discountAmount">$0.00</span>
+                </div>
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+                <div class="coupon-container">
+                    <input type="text" class="coupon-input" id="couponInput" placeholder="Enter coupon code">
+                    <button class="apply-coupon" id="applyCoupon">Apply Coupon</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--importing functionality from cdn like java aplet-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script>
+        const products = [
+            { id: 1, name: 'Premium Headphones', price: 149.99, emoji: '🎧' },
+            { id: 2, name: 'Smartphone', price: 699.99, emoji: '📱' },
+            { id: 3, name: 'Laptop', price: 1299.99, emoji: '💻' },
+            { id: 4, name: 'Smart Watch', price: 249.99, emoji: '⌚' },
+            { id: 5, name: 'Wireless Earbuds', price: 89.99, emoji: '🎵' },
+            { id: 6, name: 'Tablet', price: 499.99, emoji: '📱' },
+            { id: 7, name: 'Camera', price: 599.99, emoji: '📷' },
+            { id: 8, name: 'Bluetooth Speaker', price: 79.99, emoji: '🔊' }
+        ];
+
+        const coupons = {
+            'SAVE15': 0.15,
+            'SAVE30': 0.30,  
+            'SAVE75': 0.75   
+        };
+
+        let cart = [];
+        let appliedCoupon = null;
+        let useCapturing = false; //default to bubbling phase
+
+        //DOM elements
+        const productGrid = document.getElementById('productGrid');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        const discountInfo = document.getElementById('discountInfo');
+        const discountAmount = document.getElementById('discountAmount');
+        const couponInput = document.getElementById('couponInput');
+        const applyCouponBtn = document.getElementById('applyCoupon');
+        const eventPhaseToggle = document.getElementById('eventPhaseToggle');
+        const eventPhaseLabel = document.getElementById('eventPhaseLabel');
+        const logEntries = document.getElementById('logEntries');
+        const clearLogsBtn = document.getElementById('clearLogs');
+        const appletVisualization = document.getElementById('appletVisualization');
+
+        //start application
+        function init() {
+            renderProducts();
+            setupEventListeners();
+            initializeJavaAppletFallback();
+            logEvent('Application started');
+        }
+
+        //rendering product cards to the product grid
+        function renderProducts() {
+            productGrid.innerHTML = '';
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.dataset.productId = product.id;
+                
+                productCard.innerHTML = `
+                    <div class="product-image">${product.emoji}</div>
+                    <div class="product-title">${product.name}</div>
+                    <div class="product-price">$${product.price.toFixed(2)}</div>
+                    <button class="add-to-cart" data-product-id="${product.id}">Add to Cart</button>
+                `;
+                
+                productGrid.appendChild(productCard);
+            });
+        }
+
+        //setting up event listeners
+        function setupEventListeners() {
+            //using parent element to capture all button clicks
+            productGrid.addEventListener('click', handleAddToCart, useCapturing);
+            
+            //coupon application button
+            applyCouponBtn.addEventListener('click', applyCoupon);
+            
+            //toggle between bubbling and capturing phases
+            eventPhaseToggle.addEventListener('change', toggleEventPhase);
+            
+            //clear event logs
+            clearLogsBtn.addEventListener('click', () => {
+                logEntries.innerHTML = '';
+                logEvent('Logs cleared');
+            });
+            updateCartEventListeners();
+        }
+
+        //java aplet fallback using d3.js from cdn
+        function initializeJavaAppletFallback() {
+            try {
+                //checking if java is available as(it is not available in modern browsers)
+                if (typeof deployJava !== 'undefined') {
+                    //this would traditionally be used to check for java and deploy an aplet
+                    logEvent('java deployment toolkit detected, but Java applets are deprecated');
+                } else {
+                    logEvent('java deployment toolkit not available');
+                }
+                
+                const width = 400;
+                const height = 200;
+                
+                //create container
+                const cont = d3.select("#appletVisualization")
+                    .append("cont")
+                    .attr("width", width)
+                    .attr("height", height)
+                    .style("border", "1px solid #ccc");
+                
+                //adding text explaining the fallback
+                cont.append("text")
+                    .attr("x", width / 2)
+                    .attr("y", height / 2)
+                    .attr("text-anchor", "middle")
+                    .style("font-size", "14px")
+                    .text("d3.js Visualization (java aplet alternative)");
+                
+                //setting the visualization update function that gets called when cart changes
+                window.updateAppletVisualization = function() {
+                    //clearing previous visualization
+                    cont.selectAll("rect").remove();
+                    //creating a bar chart of items in cart
+                    const barWidth = width / (cart.length || 1) - 10;
+                    
+                    cont.selectAll("rect")
+                        .data(cart)
+                        .enter()
+                        .append("rect")
+                        .attr("x", (d, i) => i * (width / (cart.length || 1)) + 5)
+                        .attr("y", d => height - (d.quantity * 30))
+                        .attr("width", barWidth)
+                        .attr("height", d => d.quantity * 30)
+                        .attr("fill", "#3498db");
+                };
+                updateAppletVisualization();
+                
+                logEvent('java aplet fallback started with d3.js from cdn');
+            } catch (error) {
+                logEvent(`error initializing java aplet fallback: ${error.message}`);
+            }
+        }
+
+        //demonstrating event bubbling/capturing
+        function handleAddToCart(event) {
+            //EVENT PROPAGATION LOG: Shows the path from target to current target
+            logEvent('Event target: ${event.target.tagName} | currentTarget: ${event.currentTarget.tagName}');
+            
+            //only handle clicks on the "Add to Cart" buttons
+            if (event.target.classList.contains('add-to-cart')) {
+                const productId = parseInt(event.target.dataset.productId);
+                const product = products.find(p => p.id === productId);
+                
+                if (product) {
+                    //checking if product is already in cart
+                    const existingItem = cart.find(item => item.id === product.id);
+                    
+                    if (existingItem) {
+                        existingItem.quantity++;
+                    } else {
+                        cart.push({
+                            id: product.id,
+                            name: product.name,
+                            price: product.price,
+                            quantity: 1
+                        });
+                    }
+                    
+                    //event log for analytics with timestamp
+                    logEvent(`Added "${product.name}" to cart`, true);
+                    
+                    //updating cart UI
+                    updateCart();
+                    
+                    //update java aplet fallback
+                    if (typeof updateAppletVisualization === 'function') {
+                        updateAppletVisualization();
+                    }
+
+                    //traditionally call a java aplet method
+                    tryCallJavaApplet('addToCart', productId, product.name, product.price);
+                }
+            }
+        }
+
+        //attempt to call java applet method(would work in legacy browsers with Java)
+        function tryCallJavaApplet(method, ...args) {
+            try {
+                //this is how you would call a Java applet method in the past
+                const applet = document.getElementById('cartApplet');
+                if (applet && typeof applet[method] === 'function') {
+                    applet[method](...args);
+                    logEvent(`Called Java applet method: ${method}`, true);
+                }
+            } catch (error) {
+                //expected to fail in modern browsers
+                logEvent(`Java applet call failed (expected in modern browsers): ${error.message}`);
+            }
+        }
+
+        //handle removing items from cart with stopPropagation
+        function handleRemoveFromCart(event) {
+            //STOP PROPAGATION: Prevent this event from bubbling up to parent handlers
+            event.stopPropagation();
+            
+            const itemId = parseInt(event.target.dataset.itemId);
+            const itemIndex = cart.findIndex(item => item.id === itemId);
+            
+            if (itemIndex !== -1) {
+                const removedItem = cart[itemIndex];
+                
+                //if quantity > 1, decrease it otherwise remove the item
+                if (removedItem.quantity > 1) {
+                    removedItem.quantity--;
+                } else {
+                    cart.splice(itemIndex, 1);
+                }
+                
+                //event log for analytics with timestamp
+                logEvent(`Removed "${removedItem.name}" from cart`, true);
+                
+                //updating the cart UI
+                updateCart();
+                
+                //updating java aplet fallback
+                if (typeof updateAppletVisualization === 'function') {
+                    updateAppletVisualization();
+                }
+
+                //traditionally call a java aplet method
+                tryCallJavaApplet('removeFromCart', itemId, removedItem.name);
+            }
+        }
+
+        //applying coupon
+        function applyCoupon() {
+            const code = couponInput.value.trim().toUpperCase();
+            
+            if (!code) {
+                alert('Please enter a coupon code');
+                return;
+            }
+            
+            //python/jython API call simulation
+            simulatePythonJythonApiCall(code).then(result => {
+                if (result.valid) {
+                    appliedCoupon = {
+                        code: code,
+                        discount: result.discount
+                    };
+                    couponInput.value = '';
+                    
+                    //event log for analytics with timestamp
+                    logEvent('Applied coupon "${code}" (${result.discount * 100}% off)', true);
+                    updateCart();
+
+                    //traditionally call java aplet method
+                    tryCallJavaApplet('applyCoupon', code, result.discount);
+                } else {
+                    //COUPON APPLICATION: handle invalid codes
+                    alert('Invalid coupon code');
+                    logEvent(`Invalid coupon code attempted: "${code}"`, true);
+                }
+            });
+        }
+
+        //python/jython API call for coupon validation
+        function simulatePythonJythonApiCall(code) {
+            return new Promise((resolve) => {
+                //log for api call
+                logEvent('Making Python/Jython API call for coupon: ${code}', true);
+                //network delay
+                setTimeout(() => {
+                    //check if the coupon is valid
+                    if (coupons.hasOwnProperty(code)) {
+                        resolve({
+                            valid: true,
+                            discount: coupons[code],
+                            message: 'Coupon ${code} applied successfully'
+                        });
+                    } else {
+                        resolve({
+                            valid: false,
+                            message: 'Invalid coupon code: ${code}'
+                        });
+                    }
+                }, 300);//300ms API delay
+            });
+        }
+
+        //updating cart UI
+        function updateCart() {
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="empty-cart-message">Your cart is empty.</p>';
+                discountInfo.style.display = 'none';
+                cartTotal.textContent = '$0.00';
+                return;
+            }
+            
+            let cartHtml = '';
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                
+                cartHtml += `
+                    <div class="cart-item">
+                        <div class="cart-item-details">
+                            <div class="cart-item-title">${item.name}</div>
+                            <div class="cart-item-price">$${item.price.toFixed(2)} × ${item.quantity}</div>
+                        </div>
+                        <button class="remove-item" data-item-id="${item.id}">×</button>
+                    </div>
+                `;
+            });
+            
+            cartItems.innerHTML = cartHtml;
+            
+            //calculating and displaying discount if applicable
+            let finalTotal = subtotal;
+            if (appliedCoupon) {
+                const discountValue = subtotal * appliedCoupon.discount;
+                finalTotal = subtotal - discountValue;
+                
+                discountInfo.style.display = 'flex';
+                discountAmount.textContent = `-$${discountValue.toFixed(2)}`;
+            } else {
+                discountInfo.style.display = 'none';
+            }
+            
+            //PRICE TAG: updating total price
+            cartTotal.textContent = `$${finalTotal.toFixed(2)}`;
+            
+            //reattaching event listeners for cart items
+            updateCartEventListeners();
+        }
+
+        //updating event listeners for cart items
+        function updateCartEventListeners() {
+            //removing any existing event listeners
+            const removeButtons = document.querySelectorAll('.remove-item');
+            
+            removeButtons.forEach(button => {
+                //adding the event listener with stopPropagation
+                button.addEventListener('click', handleRemoveFromCart);
+            });
+        }
+
+        //toggle between bubbling and capturing phases
+        function toggleEventPhase(event) {
+            useCapturing = event.target.checked;
+            
+            //removing existing event listeners
+            productGrid.removeEventListener('click', handleAddToCart, !useCapturing);
+            
+            //adding event listeners with the new phase
+            productGrid.addEventListener('click', handleAddToCart, useCapturing);
+            
+            //updating UI to show current phase
+            eventPhaseLabel.textContent = `Event Phase: ${useCapturing ? 'Capturing' : 'Bubbling'}`;
+            
+            //log change
+            logEvent(`Switched to ${useCapturing ? 'capturing' : 'bubbling'} phase`, true);
+        }
+
+        //adding a crap function
+        function addCrap(productId, quantity) {
+            logEvent(`addCrap function called with productId: ${productId}, quantity: ${quantity}`, true);
+            try {
+                //this would interact with a java aplet
+                tryCallJavaApplet('addCrap', productId, quantity);
+                
+                //in modern implementations, we call an API or do something meaningful
+                const product = products.find(p => p.id === productId);
+                if (product) {
+                    logEvent(`Added ${quantity} units of "${product.name}" via addCrap function`);
+                    
+                    //actually add item
+                    const existingItem = cart.find(item => item.id === productId);
+                    if (existingItem) {
+                        existingItem.quantity += quantity;
+                    } else {
+                        cart.push({
+                            id: productId,
+                            name: product.name,
+                            price: product.price,
+                            quantity: quantity
+                        });
+                    }
+                    
+                    updateCart();
+                    if (typeof updateAppletVisualization === 'function') {
+                        updateAppletVisualization();
+                    }
+                }
+            } catch (error) {
+                logEvent(`Error in addCrap function: ${error.message}`);
+            }
+        }
+
+        //log events to the event log panel
+        function logEvent(message, includeTimestamp = false) {
+            const logEntry = document.createElement('div');
+            logEntry.className = 'event-log-entry';
+            
+            if (includeTimestamp) {
+                const now = new Date();
+                const timestamp = `[${now.toLocaleTimeString()}.${now.getMilliseconds()}]`;
+                logEntry.textContent = `${timestamp} ${message}`;
+                
+                //also log to console for analytics
+                console.log(`${timestamp} ${message}`);
+            } else {
+                logEntry.textContent = message;
+            }
+            
+            logEntries.appendChild(logEntry);
+            logEntries.scrollTop = logEntries.scrollHeight;
+        }
+
+        //initialize the application when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', init);
+        //e.g of calling the addCrap function
+        setTimeout(() => {
+            addCrap(1, 2); //add 2 of product ID 1 using the "crap" function
+        }, 2000);
+    </script>
+</body>
+</html>
